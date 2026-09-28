@@ -8,10 +8,13 @@
   margin-right: 18px;
   background-color: white;
   box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  top: 0;
+  transition: top 0.2s ease, box-shadow 0.2s ease;
 
+  // Se usa `top` y no `transform`: transform crea un stacking context y la
+  // capa .card-background (z-index: -1) se pintaría encima de la tarjeta.
   &:hover {
-    transform: translateY(-4px);
+    top: -4px;
     box-shadow: 6px 10px 16px rgba(0, 0, 0, 0.18);
   }
   & .card-content {
@@ -52,6 +55,12 @@
     }
     &.yellow {
       background-color: $cannary;
+    }
+    &.lightblue {
+      background-color: $lightblue;
+    }
+    &.green {
+      background-color: $green;
     }
   }
   .week-flex {
